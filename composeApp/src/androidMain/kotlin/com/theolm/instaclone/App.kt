@@ -1,4 +1,4 @@
-package com.theolm.temp
+package com.theolm.instaclone
 
 import android.app.Application
 import di.appModule

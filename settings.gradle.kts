@@ -1,4 +1,4 @@
-rootProject.name = "kmm-template"
+rootProject.name = "instaclone"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
