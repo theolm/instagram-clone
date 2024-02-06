@@ -1,9 +1,13 @@
 plugins {
     id("kmm-module-setup")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
     namespace = "com.theolm.temp"
+}
+dependencies {
+    implementation("androidx.core:core-ktx:+")
 }
 
 kotlin {
