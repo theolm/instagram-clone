@@ -2,6 +2,7 @@ plugins {
     id("android-application-setup")
     id("desktop-application-setup")
     id("compose-module-setup")
+    id("org.jetbrains.kotlin.android")
 }
 
 kotlin {
@@ -27,4 +28,7 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
+}
+dependencies {
+    implementation("androidx.core:core-ktx:+")
 }

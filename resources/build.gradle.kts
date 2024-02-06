@@ -20,6 +20,9 @@ kotlin {
             androidMain {
                 dependsOn(commonMain.get())
             }
+            iosMain {
+                dependsOn(commonMain.get())
+            }
         }
     }
 }
