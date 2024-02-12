@@ -13,6 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
+import dev.icerock.moko.resources.compose.stringResource
+import instaclone.resources.MR
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -34,7 +36,7 @@ class HomeScreen : Screen {
                     uiState = uiState.copy(showContent = !uiState.showContent)
                 }
             ) {
-                Text("Click me!")
+                Text(stringResource(MR.strings.click_me))
             }
             AnimatedVisibility(uiState.showContent) {
                 Column(
