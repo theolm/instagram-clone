@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Temp</string>
+    <string name="user_login_placeholder">Phone number, email or username</string>
+    <string name="user_password_placeholder">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="facebook_login">Log in with Facebook</string>
+    <string name="no_account_cta">Don\'t have an account?</string>
+    <string name="sign_up_cta">Sign up.</string>
 </resources>
