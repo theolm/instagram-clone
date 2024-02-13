@@ -1,5 +1,5 @@
 [versions]
-agp = "8.1.4"
+agp = "8.2.0"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
@@ -8,6 +8,8 @@ androidx-appcompat = "1.6.1"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.12.0"
 androidx-espresso-core = "3.5.1"
+androidx-lifecycle-lifecycleViewmodelKtx = "2.3.0"
+androidx-lifecycleViewmodelKtx = "2.4.0"
 androidx-material = "1.11.0"
 androidx-test-junit = "1.1.5"
 compose = "1.5.4"
@@ -15,6 +17,8 @@ compose-compiler = "1.5.8"
 compose-plugin = "1.5.11"
 junit = "4.13.2"
 kotlin = "1.9.21"
+kotlinxViewmodel = "0.1.0"
+lifecycleViewmodelKtx = "2.7.0"
 voyager = "1.0.0"
 koin = "3.5.3"
 koin-compose = "1.1.2"
@@ -23,6 +27,10 @@ coroutines = "1.7.3"
 
 [libraries]
 android-buildTools = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-ktx-v230 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle-lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-ktx-v240 = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycleViewmodelKtx" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 kotlin_gradle_plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -41,6 +49,8 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
 compose-plugin = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose-plugin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-viewmodel = { module = "org.jetbrains.kotlinx:kotlinx-viewmodel", version.ref = "kotlinxViewmodel" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyager" }
