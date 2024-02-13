@@ -43,30 +43,6 @@ class HomeScreen : Screen {
             ) {
                 Text("Click me!")
             }
-            PrimaryMainButton(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 20.dp),
-                text = "Click",
-                image = painterResource("facebook-logo.png"),
-                imageAlignment = PrimaryMainButtonConfig.ImageAlignment.END,
-                onClick = {
-                uiState = uiState.copy(showContent = !uiState.showContent)
-            })
-
-            TertiaryMainButton(
-                text = "Switch accounts",
-                onClick = {
-                    uiState = uiState.copy(showContent = !uiState.showContent)
-                })
-
-            ProfileIcon(
-                modifier = Modifier
-                .padding(top = 32.dp),
-                input = ProfileIconConfig.Input(image = painterResource(
-                    "pedro.jpeg"),
-                    username = "eupedroalvarez"),
-                context = ProfileIconConfig.Context.PreLogin)
 
             AnimatedVisibility(uiState.showContent) {
                 Column(
