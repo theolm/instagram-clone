@@ -36,6 +36,7 @@ class HomeScreen : Screen {
             ) {
                 Text("Click me!")
             }
+
             AnimatedVisibility(uiState.showContent) {
                 Column(
                     Modifier.fillMaxWidth(),
