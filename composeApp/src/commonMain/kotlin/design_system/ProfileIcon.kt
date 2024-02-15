@@ -19,21 +19,30 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import common.conditional
 
 object ProfileIconConfig {
-    enum class Context {
-        PreLogin, Stories;
+    enum class Context(
+        val shouldHighlight: Boolean,
+        val usernameShouldBeBold: Boolean
+    ) {
+        PreLogin(
+            shouldHighlight = false,
+            usernameShouldBeBold = true
+        ),
+        Stories(
+            shouldHighlight = true,
+            usernameShouldBeBold = false
+        );
 
         fun shouldHighlight(): Boolean {
-            return when(this) {
+            return when (this) {
                 PreLogin -> false
                 Stories -> true
             }
         }
 
         fun usernameShouldBeBold(): Boolean {
-            return when(this) {
+            return when (this) {
                 PreLogin -> true
                 Stories -> false
             }
@@ -42,6 +51,7 @@ object ProfileIconConfig {
 
     data class Input(val image: Painter, val username: String)
 }
+
 @Composable
 fun ProfileIcon(
     modifier: Modifier = Modifier,
@@ -51,26 +61,28 @@ fun ProfileIcon(
     val gradientColors = listOf(Color(0xFFE57373), Color(0xFFEF5350), Color(0xFFF44336))
     val gradient = Brush.linearGradient(
         colors = gradientColors,
-        start = Offset(0f,0f),
+        start = Offset(0f, 0f),
         end = Offset(100f, 100f)
     )
 
     Column(
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Image(
             modifier = Modifier
                 .size(80.dp)
                 .clip(CircleShape)
                 .border(
-                BorderStroke(if(context.shouldHighlight()) 2.dp else 0.dp, gradient),
-                shape = CircleShape
-            ),
+                    BorderStroke(if (context.shouldHighlight()) 2.dp else 0.dp, gradient),
+                    shape = CircleShape
+                ),
             painter = input.image,
             contentDescription = null,
         )
-        Text(modifier = Modifier
-            .padding(top = 8.dp),
+        Text(
+            modifier = Modifier
+                .padding(top = 8.dp),
             text = input.username,
             fontWeight =
             if (context.usernameShouldBeBold()) FontWeight.Bold else FontWeight.Normal,
