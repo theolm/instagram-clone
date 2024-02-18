@@ -1,3 +1,5 @@
+@file:Suppress("MatchingDeclarationName")
+
 import platform.UIKit.UIDevice
 
 class IOSPlatform : Platform {
