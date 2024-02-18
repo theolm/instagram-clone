@@ -17,9 +17,9 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import catalog.SharedScreen
+import components.buttons.TestButton
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
-import components.buttons.TestButton
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
