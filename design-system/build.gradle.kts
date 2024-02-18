@@ -1,5 +1,11 @@
+import config.Config
+
 plugins {
-    id("application-setup")
+    id("compose-module-setup")
+}
+
+android {
+    namespace = Config.applicationId + ".designsystem"
 }
 
 kotlin {
@@ -8,16 +14,12 @@ kotlin {
         
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.androidx.activity.compose)
         }
 
         commonMain.dependencies {
-            implementation(projects.designSystem)
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.screenModel)
             implementation(libs.voyager.koin)
-            implementation(projects.resources)
-            implementation(libs.moko.compose.resources)
         }
     }
 }

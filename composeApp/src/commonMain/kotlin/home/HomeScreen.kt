@@ -15,8 +15,10 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
+import components.buttons.TestButton
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import kotlin.test.Test
 
 class HomeScreen : Screen {
     @Composable
@@ -38,6 +40,11 @@ class HomeScreen : Screen {
             ) {
                 Text(stringResource(MR.strings.click_me))
             }
+
+            TestButton {
+                println("Button clicked!")
+            }
+
             AnimatedVisibility(uiState.showContent) {
                 Column(
                     Modifier.fillMaxWidth(),
