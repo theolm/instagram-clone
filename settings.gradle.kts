@@ -22,5 +22,6 @@ dependencyResolutionManagement {
 include(
     ":composeApp",
     ":api-client",
+    ":resources",
     ":design-system",
 )
