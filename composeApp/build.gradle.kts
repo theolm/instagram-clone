@@ -1,5 +1,6 @@
 plugins {
     id("application-setup")
+    id("plugins.detekt")
 }
 
 kotlin {
