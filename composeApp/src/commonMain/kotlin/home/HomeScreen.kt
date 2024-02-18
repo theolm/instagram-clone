@@ -13,8 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
+import components.buttons.TestButton
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import kotlin.test.Test
 
 class HomeScreen : Screen {
     @Composable
@@ -36,6 +38,11 @@ class HomeScreen : Screen {
             ) {
                 Text("Click me!")
             }
+
+            TestButton {
+                println("Button clicked!")
+            }
+
             AnimatedVisibility(uiState.showContent) {
                 Column(
                     Modifier.fillMaxWidth(),
