@@ -1,8 +1,4 @@
 import config.Config
-import gradle.kotlin.dsl.accessors._46a2f7c97d3e3cd4aacb54f7f4506a3c.compose
-import gradle.kotlin.dsl.accessors._46a2f7c97d3e3cd4aacb54f7f4506a3c.desktop
-import gradle.kotlin.dsl.accessors._46a2f7c97d3e3cd4aacb54f7f4506a3c.kotlin
-import gradle.kotlin.dsl.accessors._46a2f7c97d3e3cd4aacb54f7f4506a3c.sourceSets
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
