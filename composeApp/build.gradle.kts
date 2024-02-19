@@ -2,7 +2,6 @@ plugins {
     id("android-application-setup")
     id("desktop-application-setup")
     id("compose-module-setup")
-    id("org.jetbrains.kotlin.android")
 }
 
 kotlin {

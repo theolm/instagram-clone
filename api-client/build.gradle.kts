@@ -1,6 +1,5 @@
 plugins {
     id("kmm-module-setup")
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
