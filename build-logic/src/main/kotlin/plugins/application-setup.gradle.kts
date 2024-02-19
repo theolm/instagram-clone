@@ -1,9 +1,10 @@
 import config.Config
 import org.gradle.accessors.dm.LibrariesForLibs
 import org.jetbrains.compose.ExperimentalComposeLibrary
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    id("com.android.library")
+    id("com.android.application")
     id("org.jetbrains.kotlin.multiplatform")
     id("org.jetbrains.compose")
 }
@@ -17,13 +18,28 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
+        applicationId = Config.applicationId
         minSdk = Config.minSdk
         targetSdk = Config.targetSdk
+        versionCode = Config.versionCode
+        versionName = Config.versionName
     }
 
     compileOptions {
         sourceCompatibility = Config.javaVersion
         targetCompatibility = Config.javaVersion
+    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+        }
     }
 
 }
@@ -32,7 +48,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = Config.javaVersion.toString()
+                jvmTarget = "17"
             }
         }
     }
@@ -79,6 +95,18 @@ kotlin {
         iosMain.dependencies {
             //Workaround to fix koin on ios
             implementation(libs.stately.common)
+        }
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "MainKt"
+
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = Config.applicationId
+            packageVersion = Config.packageVersion
         }
     }
 }

@@ -21,6 +21,8 @@ koin-compose = "1.1.2"
 ktor = "2.3.7"
 coroutines = "1.7.3"
 moko_resources = "0.23.0"
+detekt = "1.23.4"
+detektCompose = "0.3.11"
 
 [libraries]
 android-buildTools = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -60,6 +62,9 @@ ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", 
 stately-common = "co.touchlab:stately-common:2.0.5"
 moko_resources = { group = "dev.icerock.moko", name = "resources", version.ref = "moko_resources" }
 moko_compose_resources = { group = "dev.icerock.moko", name = "resources-compose", version.ref = "moko_resources" }
+detekt-gradlePlugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+detekt-rules-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-rules-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

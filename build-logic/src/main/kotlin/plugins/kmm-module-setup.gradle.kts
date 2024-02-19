@@ -29,7 +29,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "17"
+                jvmTarget = Config.javaVersion.toString()
             }
         }
     }
