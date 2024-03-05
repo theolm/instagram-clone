@@ -1,4 +1,4 @@
-package designsystem.login
+package components.buttons
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,7 +11,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import designsystem.colors.ButtonColor
+import colors.ButtonColor
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 import login.horizontalPadding

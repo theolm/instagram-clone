@@ -1,28 +1,32 @@
-package designsystem.login
+package components.texts
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import designsystem.HyperLinkText
+import colors.TextColor
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
-import login.horizontalPadding
 
 @Composable
-fun ForgotPasswordHyperlink() {
+fun InstagramSignUpHyperlink() {
     Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = horizontalPadding),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.End
+        horizontalArrangement = Arrangement.Center
     ) {
-        HyperLinkText(text = stringResource(MR.strings.forgot_password), fontWeight = FontWeight.W500) {
+        Text(
+            text = stringResource(MR.strings.no_account_cta),
+            modifier = Modifier.padding(end = 5.dp),
+            color = TextColor.BLACK_40A.color,
+            fontSize = 12.sp
+        )
+        HyperLinkText(text = stringResource(MR.strings.sign_up_cta)) {
             /* TODO ADD NAVIGATION ACTION */
         }
     }

@@ -1,4 +1,4 @@
-package designsystem.login
+package components.texts
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

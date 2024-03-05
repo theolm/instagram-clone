@@ -1,4 +1,4 @@
-package designsystem
+package components.texts
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.Text
@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import designsystem.colors.TextColor
+import colors.TextColor
 
 @Composable
 fun HyperLinkText(

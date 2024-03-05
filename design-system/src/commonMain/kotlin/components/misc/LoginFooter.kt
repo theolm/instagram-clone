@@ -1,4 +1,4 @@
-package designsystem.login
+package components.misc
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import designsystem.colors.TextColor
+import colors.TextColor
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 
