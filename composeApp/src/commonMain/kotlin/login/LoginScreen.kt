@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
@@ -80,11 +81,11 @@ fun LoginScreen() {
 
                 ForgotPasswordHyperlink()
                 LoginButton(loginButtonState, listOf(usernameTextField, passwordTextField))
-                FacebookSignUpHyperlink()
+                FacebookSignUpHyperlink(modifier = Modifier.padding(start = 10.dp))
                 LoginDivider()
                 InstagramSignUpHyperlink()
             }
         }
     }
-    LoginFooter()
+    LoginFooter(modifier = Modifier.fillMaxWidth().padding(30.dp))
 }

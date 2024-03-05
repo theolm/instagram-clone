@@ -17,7 +17,7 @@ import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 
 @Composable
-fun LoginFooter() {
+fun LoginFooter(modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom,
@@ -25,9 +25,7 @@ fun LoginFooter() {
     ) {
         Divider(color = TextColor.BLACK_20A.color, thickness = 0.5.dp)
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(30.dp),
+            modifier = modifier,
             horizontalArrangement = Arrangement.Center
         ) {
             Text(text = stringResource(MR.strings.login_footer), color = TextColor.BLACK_40A.color)

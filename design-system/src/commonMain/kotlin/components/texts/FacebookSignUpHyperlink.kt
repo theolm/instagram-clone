@@ -14,7 +14,7 @@ import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 
 @Composable
-fun FacebookSignUpHyperlink() {
+fun FacebookSignUpHyperlink(modifier: Modifier = Modifier) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center, modifier = Modifier.padding(20.dp)
@@ -24,7 +24,7 @@ fun FacebookSignUpHyperlink() {
             contentDescription = stringResource(MR.strings.facebook_logo)
         )
         HyperLinkText(
-            modifier = Modifier.padding(start = 10.dp),
+            modifier = modifier,
             text = stringResource(MR.strings.facebook_login), fontWeight = FontWeight.W600
         ) {
             /* TODO ADD NAVIGATION ACTION */
