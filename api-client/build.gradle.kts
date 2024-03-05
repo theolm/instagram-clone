@@ -5,9 +5,6 @@ plugins {
 android {
     namespace = "com.theolm.temp"
 }
-dependencies {
-    implementation("androidx.core:core-ktx:+")
-}
 
 kotlin {
     sourceSets {
