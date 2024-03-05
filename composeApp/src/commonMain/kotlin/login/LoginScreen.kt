@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -30,6 +31,7 @@ import components.texts.InstagramSignUpHyperlink
 import components.texts.InstagramTextLogo
 import dev.icerock.moko.resources.compose.painterResource
 import instaclone.resources.MR
+import layout.horizontalPadding
 
 @Composable
 fun LoginScreen() {
@@ -42,6 +44,7 @@ fun LoginScreen() {
     val loginButtonState = remember {
         mutableStateOf(ButtonColor.BLUE_50A)
     }
+    val inputFields: List<MutableState<String>> = listOf(usernameTextField, passwordTextField)
 
     Column(
         modifier = Modifier
@@ -80,7 +83,16 @@ fun LoginScreen() {
                 Spacer(modifier = Modifier.size(15.dp))
 
                 ForgotPasswordHyperlink()
-                LoginButton(loginButtonState, listOf(usernameTextField, passwordTextField))
+                LoginButton(loginButtonState = loginButtonState, inputFields = inputFields,
+                    modifier = Modifier.fillMaxWidth().padding(horizontalPadding), onClick = {
+                        if (inputFields.all { input -> input.value.isNotBlank() }) {
+                            try {
+                                /* TODO ADD NAVIGATION ACTION */
+                            } catch (response: Exception) {
+                                /*TODO CREATE ALERT DIALOG*/
+                            }
+                        }
+                    })
                 FacebookSignUpHyperlink(modifier = Modifier.padding(start = 10.dp))
                 LoginDivider()
                 InstagramSignUpHyperlink()

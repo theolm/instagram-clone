@@ -17,14 +17,17 @@ import instaclone.resources.MR
 import layout.horizontalPadding
 
 @Composable
-fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputFields: List<MutableState<String>>) {
+fun LoginButton(
+    loginButtonState: MutableState<ButtonColor>,
+    inputFields: List<MutableState<String>>,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit
+) {
     val inputsNotBlank = inputFields.all { field -> field.value.isNotBlank() }
-    loginButtonState.value = if(inputsNotBlank) ButtonColor.BLUE_100A else ButtonColor.BLUE_50A
+    loginButtonState.value = if (inputsNotBlank) ButtonColor.BLUE_100A else ButtonColor.BLUE_50A
 
     Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontalPadding),
+        modifier = modifier,
         shape = RoundedCornerShape(10),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = loginButtonState.value.color,
@@ -32,13 +35,7 @@ fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputFields: List<M
         ),
         elevation = ButtonDefaults.elevation(0.dp),
         onClick = {
-            if (inputsNotBlank) {
-                try {
-                    /* TODO ADD NAVIGATION ACTION */
-                } catch (response: Exception) {
-                    /*TODO CREATE ALERT DIALOG*/
-                }
-            }
+            onClick()
         }) {
         Text(text = stringResource(MR.strings.login_button))
     }
