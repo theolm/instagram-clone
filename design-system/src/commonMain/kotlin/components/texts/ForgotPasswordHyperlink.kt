@@ -8,10 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import designsystem.HyperLinkText
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
-import login.horizontalPadding
+import layout.horizontalPadding
 
 @Composable
 fun ForgotPasswordHyperlink() {

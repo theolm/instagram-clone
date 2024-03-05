@@ -31,8 +31,6 @@ import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 
-val horizontalPadding = 16.dp
-
 @Composable
 fun LoginScreen() {
     val emailTextField = remember {

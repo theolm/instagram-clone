@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import colors.ButtonColor
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
-import login.horizontalPadding
+import layout.horizontalPadding
 
 @Composable
 fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputsState: MutableMap<String, Boolean>) {
