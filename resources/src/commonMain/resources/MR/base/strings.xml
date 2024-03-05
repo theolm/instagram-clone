@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="click_me">Click me!</string>
-    <string name="user_login_placeholder">Phone number, email or username</string>
-    <string name="user_password_placeholder">Password</string>
+    <string name="placeholder_user_login">Phone number, email or username</string>
+    <string name="placeholder_user_password">Password</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="facebook_login">Log in with Facebook</string>
-    <string name="no_account_cta">Don\'t have an account?</string>
+    <string name="cta_no_account">Don\'t have an account?</string>
     <string name="sign_up_cta">Sign up.</string>
-    <string name="login_button_text">Log in</string>
-    <string name="login_footer_text">Instagram from Facebook</string>
+    <string name="login_button">Log in</string>
+    <string name="login_footer">Instagram from Facebook</string>
+
+                <!--    CONTENT DESCRIPTION-->
+    <string name="password_visible">Password visible</string>
+    <string name="password_not_visible">Password not visible</string>
+    <string name="facebook_logo">"Facebook logo"</string>
 </resources>

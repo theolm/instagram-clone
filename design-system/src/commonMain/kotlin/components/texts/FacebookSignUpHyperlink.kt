@@ -22,7 +22,7 @@ fun FacebookSignUpHyperlink() {
     ) {
         Image(
             painter = painterResource(MR.images.facebook_logo),
-            contentDescription = "Facebook logo"
+            contentDescription = stringResource(MR.strings.facebook_logo)
         )
         HyperLinkText(
             modifier = Modifier.padding(start = 10.dp),

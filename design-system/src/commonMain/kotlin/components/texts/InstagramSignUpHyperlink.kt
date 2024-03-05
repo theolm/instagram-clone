@@ -21,7 +21,7 @@ fun InstagramSignUpHyperlink() {
         horizontalArrangement = Arrangement.Center
     ) {
         Text(
-            text = stringResource(MR.strings.no_account_cta),
+            text = stringResource(MR.strings.cta_no_account),
             modifier = Modifier.padding(end = 5.dp),
             color = TextColor.BLACK_40A.color,
             fontSize = 12.sp

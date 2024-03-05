@@ -37,6 +37,6 @@ fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputsState: Mutabl
                 }
             }
         }) {
-        Text(text = stringResource(MR.strings.login_button_text))
+        Text(text = stringResource(MR.strings.login_button))
     }
 }

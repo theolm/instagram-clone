@@ -30,7 +30,7 @@ fun LoginFooter() {
                 .padding(30.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            Text(text = stringResource(MR.strings.login_footer_text), color = TextColor.BLACK_40A.color)
+            Text(text = stringResource(MR.strings.login_footer), color = TextColor.BLACK_40A.color)
         }
     }
 }
