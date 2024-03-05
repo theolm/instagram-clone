@@ -16,11 +16,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import colors.ButtonColor
 import components.buttons.LoginButton
-import components.inputs.CredentialInput
+import components.inputs.PasswordInput
+import components.inputs.UsernameInput
 import components.misc.LoginDivider
 import components.misc.LoginFooter
 import components.texts.FacebookSignUpHyperlink
@@ -28,12 +28,11 @@ import components.texts.ForgotPasswordHyperlink
 import components.texts.InstagramSignUpHyperlink
 import components.texts.InstagramTextLogo
 import dev.icerock.moko.resources.compose.painterResource
-import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 
 @Composable
 fun LoginScreen() {
-    val emailTextField = remember {
+    val usernameTextField = remember {
         mutableStateOf("")
     }
     val passwordTextField = remember {
@@ -41,9 +40,6 @@ fun LoginScreen() {
     }
     val loginButtonState = remember {
         mutableStateOf(ButtonColor.BLUE_50A)
-    }
-    val inputsState = remember {
-        mutableMapOf("email" to false, "password" to false)
     }
 
     Column(
@@ -70,28 +66,20 @@ fun LoginScreen() {
                 verticalArrangement = Arrangement.SpaceAround,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                CredentialInput(
-                    name = stringResource(MR.strings.user_login_placeholder),
-                    field = emailTextField,
-                    inputsState = inputsState,
-                    inputType = KeyboardType.Text,
-                    loginButtonState = loginButtonState
+                UsernameInput(
+                    inputField = usernameTextField,
                 )
 
                 Spacer(modifier = Modifier.size(15.dp))
 
-                CredentialInput(
-                    name = stringResource(MR.strings.user_password_placeholder),
-                    field = passwordTextField,
-                    inputsState = inputsState,
-                    inputType = KeyboardType.Password,
-                    loginButtonState = loginButtonState
+                PasswordInput(
+                    inputField = passwordTextField
                 )
 
                 Spacer(modifier = Modifier.size(15.dp))
 
                 ForgotPasswordHyperlink()
-                LoginButton(loginButtonState, inputsState)
+                LoginButton(loginButtonState, listOf(usernameTextField, passwordTextField))
                 FacebookSignUpHyperlink()
                 LoginDivider()
                 InstagramSignUpHyperlink()

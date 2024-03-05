@@ -17,7 +17,10 @@ import instaclone.resources.MR
 import layout.horizontalPadding
 
 @Composable
-fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputsState: MutableMap<String, Boolean>) {
+fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputFields: List<MutableState<String>>) {
+    val inputsNotBlank = inputFields.all { field -> field.value.isNotBlank() }
+    loginButtonState.value = if(inputsNotBlank) ButtonColor.BLUE_100A else ButtonColor.BLUE_50A
+
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -29,7 +32,7 @@ fun LoginButton(loginButtonState: MutableState<ButtonColor>, inputsState: Mutabl
         ),
         elevation = ButtonDefaults.elevation(0.dp),
         onClick = {
-            if (inputsState.values.all { state -> state }) {
+            if (inputsNotBlank) {
                 try {
                     /* TODO ADD NAVIGATION ACTION */
                 } catch (response: Exception) {
