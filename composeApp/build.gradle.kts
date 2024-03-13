@@ -28,3 +28,6 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
+dependencies {
+    implementation("androidx.core:core-ktx:+")
+}

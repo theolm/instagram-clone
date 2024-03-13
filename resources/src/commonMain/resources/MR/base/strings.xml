@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="click_me">Click me!</string>
+
+    <!--    CONTENT DESCRIPTION-->
+    <string name="desc_home_menu">Home navigation</string>
+    <string name="desc_search_menu">Search navigation</string>
+    <string name="desc_add_menu">Add New</string>
+    <string name="desc_favorite_menu">Favorite navigation</string>
+    <string name="desc_profile_menu">Profile navigation</string>
 </resources>
