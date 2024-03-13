@@ -29,37 +29,15 @@ class HomeScreen : Screen {
         Screen()
     }
 
-    @OptIn(ExperimentalResourceApi::class)
     @Composable
     private fun Screen() {
         val navigator = LocalNavigator.currentOrThrow
         val screenModel = getScreenModel<HomeScreenModel>()
-        var uiState by screenModel.uiState
 
         val dsCatalog = rememberScreen(SharedScreen.CatalogScreen)
 
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(
-                onClick = {
-                    uiState = uiState.copy(showContent = !uiState.showContent)
-                }
-            ) {
-                Text(stringResource(MR.strings.click_me))
-            }
-
-            TestButton {
-                navigator.push(dsCatalog)
-            }
-
-            AnimatedVisibility(uiState.showContent) {
-                Column(
-                    Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Image(painterResource("compose-multiplatform.xml"), null)
-                    Text("Compose: ${uiState.message}")
-                }
-            }
+        TestButton {
+            navigator.push(dsCatalog)
         }
     }
 }

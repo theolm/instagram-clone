@@ -1,4 +1,4 @@
-package common.bottomBar
+package components.bottombar
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.runtime.Composable
@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.Surface
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,88 +26,100 @@ import dev.icerock.moko.resources.compose.painterResource
 import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 
-val iconModifier = Modifier.width(22.dp).height(24.dp)
 
-@Composable
-fun BottomBar() {
-    val homeItem = BottomBarItem(
-        isSelected = mutableStateOf(true),
+
+private val tabItems = listOf(
+    BottomBarItem(
         iconSelected = MR.images.home_selected,
         iconUnselected = MR.images.home_unselected,
         contentDescription = MR.strings.desc_home_menu
-    )
-    val searchItem = BottomBarItem(
+    ),
+    BottomBarItem(
         iconSelected = MR.images.search_selected,
         iconUnselected = MR.images.search_unselected,
         contentDescription = MR.strings.desc_search_menu
-    )
-    val addItem = BottomBarItem(
+    ),
+    BottomBarItem(
         iconSelected = MR.images.add_new,
         iconUnselected = MR.images.add_new,
         contentDescription = MR.strings.desc_add_menu
-    )
-    val favoriteItem = BottomBarItem(
+    ),
+    BottomBarItem(
         iconSelected = MR.images.favorite_selected,
         iconUnselected = MR.images.favorite_unselected,
         contentDescription = MR.strings.desc_favorite_menu
-    )
-    val profileItem = BottomBarItem(
+    ),
+    BottomBarItem(
         iconSelected = MR.images.instagram_logo,
         iconUnselected = MR.images.instagram_logo,
         contentDescription = MR.strings.desc_profile_menu,
-        borderColor = mutableStateOf(Color.Transparent)
+        borderColor = Color.Black,
+        hasBorder = true,
+        isImage = true,
     )
+)
 
-    val tabList = listOf(homeItem, searchItem, favoriteItem, profileItem)
-
-    Row(
-        modifier = Modifier.background(Color.White).fillMaxWidth().height(45.dp).border(
-            BorderStroke(width = 0.5.dp, color = Color(0x1A000000))
-        ),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceAround
+@Composable
+fun BottomBar(
+    modifier: Modifier = Modifier,
+    selectedTabIndex: Int = 0,
+    onTabSelected: (Int) -> Unit
+) {
+    Surface(
+        elevation = 6.dp
     ) {
-        BottomBarIcon(item = homeItem, tabList = tabList)
-        BottomBarIcon(item = searchItem, tabList = tabList)
-        BottomBarIcon(item = addItem, tabList = tabList)
-        BottomBarIcon(item = favoriteItem, tabList = tabList)
-        BottomBarIcon(item = profileItem, tabList = tabList, isImage = true, hasBorder = true)
+        Row(
+            modifier = modifier
+                .background(Color.White)
+                .height(45.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceAround
+        ) {
+            tabItems.forEachIndexed { index, bottomBarItem ->
+                BottomBarIcon(
+                    item = bottomBarItem,
+                    isSelected = index == selectedTabIndex
+                ) {
+                    onTabSelected(index)
+                }
+            }
+        }
     }
 }
 
 @Composable
-fun BottomBarIcon(item: BottomBarItem, tabList: List<BottomBarItem>, isImage: Boolean = false,
-                  hasBorder: Boolean = false) {
-    val modifier = if (hasBorder) Modifier.border(1.dp, item.borderColor.value,
-        RoundedCornerShape(100)).size(27.dp) else iconModifier
+fun BottomBarIcon(
+    item: BottomBarItem,
+    isSelected: Boolean,
+    onItemClick: () -> Unit
+) {
+    val iconModifier = Modifier.width(22.dp).height(24.dp)
+    val roundedShape = RoundedCornerShape(100)
 
-    IconButton(modifier = modifier,
-        onClick = {
-            selectSingleTab(selectedTab = item, tabList = tabList)
-        }) {
-        if (isImage) {
+    val modifier = if (item.hasBorder) Modifier.border(
+        width = 1.dp,
+        color = if (isSelected) item.borderColor else Color.Transparent,
+        shape = roundedShape
+    ).size(27.dp) else iconModifier
+
+    IconButton(
+        modifier = modifier,
+        onClick = onItemClick
+    ) {
+        if (item.isImage) {
             Image(
-                painterResource(item.iconSelected),
-                modifier = iconModifier.clip(RoundedCornerShape(100)),
+                painter = painterResource(item.iconSelected),
+                modifier = iconModifier.clip(roundedShape),
                 contentScale = ContentScale.Crop,
                 alignment = Alignment.Center,
                 contentDescription = stringResource(item.contentDescription)
             )
         } else {
             Icon(
-                painterResource(if (item.isSelected.value) item.iconSelected else item.iconUnselected),
+                painter = painterResource(if (isSelected) item.iconSelected else item.iconUnselected),
                 modifier = iconModifier,
                 contentDescription = stringResource(item.contentDescription)
             )
         }
-    }
-}
-
-fun selectSingleTab(selectedTab: BottomBarItem, tabList: List<BottomBarItem>) {
-    tabList.forEach { tab -> tab.isSelected.value = tab == selectedTab }
-    if (selectedTab.contentDescription == MR.strings.desc_profile_menu) {
-        selectedTab.borderColor.value = Color.Black
-    } else {
-        tabList.forEach { tab -> tab.borderColor.value = Color.Transparent }
     }
 }
