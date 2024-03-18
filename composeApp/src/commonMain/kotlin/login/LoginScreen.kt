@@ -23,7 +23,7 @@ import colors.ButtonColor
 import components.buttons.LoginButton
 import components.inputs.PasswordInput
 import components.inputs.UsernameInput
-import components.misc.LoginDivider
+import components.misc.CustomDivider
 import components.misc.LoginFooter
 import components.texts.FacebookSignUpHyperlink
 import components.texts.ForgotPasswordHyperlink
@@ -94,7 +94,11 @@ fun LoginScreen() {
                         }
                     })
                 FacebookSignUpHyperlink(modifier = Modifier.padding(start = 10.dp))
-                LoginDivider()
+                CustomDivider(
+                    text = "OR",
+                    rowModifier = Modifier.padding(vertical = 20.dp),
+                    textModifier = Modifier.padding(10.dp)
+                )
                 InstagramSignUpHyperlink()
             }
         }
