@@ -28,24 +28,14 @@ import dev.icerock.moko.resources.compose.stringResource
 import instaclone.resources.MR
 import layout.horizontalPadding
 
-
-@Composable
-fun getTextFieldColors(): TextFieldColors {
-    return TextFieldDefaults.textFieldColors(backgroundColor = TextColor.BLACK_10A.color,
-        placeholderColor = TextColor.BLACK_20A.color,
-        textColor = TextColor.DARK_GRAY.color,
-        unfocusedIndicatorColor = Color.Transparent,
-        focusedIndicatorColor = Color.Transparent,
-        cursorColor = TextColor.BLACK_20A.color,)
-}
-
 @Composable
 fun UsernameInput(
-    inputField: MutableState<String>,
+    inputField: String,
+    onTextChange: (String) -> Unit
 ) {
     TextField(
-        value = inputField.value, onValueChange = {
-            inputField.value = it
+        value = inputField, onValueChange = {
+            onTextChange(it)
         },
         modifier = Modifier
             .fillMaxWidth()
@@ -56,10 +46,10 @@ fun UsernameInput(
     )
 }
 
-
 @Composable
 fun PasswordInput(
-    inputField: MutableState<String>,
+    inputField: String,
+    onTextChange: (String) -> Unit
 ) {
     val passwordMask = remember {
         mutableStateOf<VisualTransformation>(PasswordVisualTransformation())
@@ -72,8 +62,8 @@ fun PasswordInput(
     }
 
     TextField(
-        value = inputField.value, onValueChange = {
-            inputField.value = it
+        value = inputField, onValueChange = {
+            onTextChange(it)
         },
         modifier = Modifier
             .fillMaxWidth()
@@ -97,7 +87,7 @@ fun PasswordInput(
     )
 }
 
-fun passwordSwitch(
+private fun passwordSwitch(
     icon: MutableState<ImageResource>,
     passwordMask: MutableState<VisualTransformation>,
     contentDescriptionIcon: MutableState<StringResource>
@@ -111,4 +101,14 @@ fun passwordSwitch(
         passwordMask.value = VisualTransformation.None
         contentDescriptionIcon.value = MR.strings.password_not_visible
     }
+}
+
+@Composable
+private fun getTextFieldColors(): TextFieldColors {
+    return TextFieldDefaults.textFieldColors(backgroundColor = TextColor.BLACK_10A.color,
+        placeholderColor = TextColor.BLACK_20A.color,
+        textColor = TextColor.DARK_GRAY.color,
+        unfocusedIndicatorColor = Color.Transparent,
+        focusedIndicatorColor = Color.Transparent,
+        cursorColor = TextColor.BLACK_20A.color,)
 }

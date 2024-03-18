@@ -71,20 +71,30 @@ fun LoginScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 UsernameInput(
-                    inputField = usernameTextField,
+                    inputField = usernameTextField.value,
+                    onTextChange = {
+                        usernameTextField.value = it
+                        loginButtonState.value = updateLoginButtonColor(inputFields)
+                    }
                 )
 
                 Spacer(modifier = Modifier.size(15.dp))
 
                 PasswordInput(
-                    inputField = passwordTextField
+                    inputField = passwordTextField.value,
+                    onTextChange = {
+                        passwordTextField.value = it
+                        loginButtonState.value = updateLoginButtonColor(inputFields)
+                    }
                 )
 
                 Spacer(modifier = Modifier.size(15.dp))
 
                 ForgotPasswordHyperlink()
-                LoginButton(loginButtonState = loginButtonState, inputFields = inputFields,
-                    modifier = Modifier.fillMaxWidth().padding(horizontalPadding), onClick = {
+                LoginButton(
+                    loginButtonColor = loginButtonState.value,
+                    modifier = Modifier.fillMaxWidth().padding(horizontalPadding),
+                    onClick = {
                         if (inputFields.all { input -> input.value.isNotBlank() }) {
                             try {
                                 /* TODO ADD NAVIGATION ACTION */
@@ -104,4 +114,9 @@ fun LoginScreen() {
         }
     }
     LoginFooter(modifier = Modifier.fillMaxWidth().padding(30.dp))
+}
+
+private fun updateLoginButtonColor(inputFields: List<MutableState<String>>): ButtonColor {
+    val allFilled = inputFields.all { field -> field.value.isNotBlank() }
+    return if(allFilled) ButtonColor.BLUE_100A else ButtonColor.BLUE_50A
 }
