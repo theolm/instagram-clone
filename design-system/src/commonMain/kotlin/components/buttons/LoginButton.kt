@@ -14,16 +14,19 @@ import instaclone.resources.MR
 
 @Composable
 fun LoginButton(
-    loginButtonColor: ButtonColor,
     modifier: Modifier = Modifier,
+    isEnabled: Boolean = false,
     onClick: () -> Unit
 ) {
     Button(
         modifier = modifier,
+        enabled = isEnabled,
         shape = RoundedCornerShape(10),
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = loginButtonColor.color,
-            contentColor = Color.White
+            backgroundColor = ButtonColor.BLUE_100A.color,
+            contentColor = Color.White,
+            disabledBackgroundColor = ButtonColor.BLUE_50A.color,
+            disabledContentColor = Color.White
         ),
         elevation = ButtonDefaults.elevation(0.dp),
         onClick = onClick

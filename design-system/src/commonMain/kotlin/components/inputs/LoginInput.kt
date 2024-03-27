@@ -30,11 +30,11 @@ import layout.horizontalPadding
 
 @Composable
 fun UsernameInput(
-    inputField: String,
+    currentValue: String,
     onTextChange: (String) -> Unit
 ) {
     TextField(
-        value = inputField, onValueChange = {
+        value = currentValue, onValueChange = {
             onTextChange(it)
         },
         modifier = Modifier
@@ -48,7 +48,7 @@ fun UsernameInput(
 
 @Composable
 fun PasswordInput(
-    inputField: String,
+    currentValue: String,
     onTextChange: (String) -> Unit
 ) {
     val passwordMask = remember {
@@ -62,7 +62,7 @@ fun PasswordInput(
     }
 
     TextField(
-        value = inputField, onValueChange = {
+        value = currentValue, onValueChange = {
             onTextChange(it)
         },
         modifier = Modifier
